@@ -3,7 +3,7 @@ import { error } from '@sveltejs/kit';
 
 export default async function fetchRefresh(fetch, path) {
 	const req = fetch(path);
-	if (!browser) return;
+	if (!browser) return req;
 
 	const res = await req;
 	if (res.status === 401) {

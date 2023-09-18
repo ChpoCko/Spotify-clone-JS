@@ -1,6 +1,6 @@
 <script>
 	import logo from '$assets/Spotify_Logo_RGB_White.png';
-	// import { tick, type ComponentType } from 'svelte';
+	import { tick } from 'svelte';
 	import { Home, ListMusic, Search, Menu, X } from 'lucide-svelte';
 	import { page } from '$app/stores';
 	import { fade } from 'svelte/transition';

@@ -3,8 +3,6 @@
 	export let data;
 
 	$: album = data.album;
-
-	$: console.log(album);
 </script>
 
 <h1>{album.name}</h1>
