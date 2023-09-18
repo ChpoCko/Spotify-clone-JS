@@ -1,0 +1,120 @@
+// @use 'functions';
+@import '@fontsource/metropolis';
+@import '@fontsource/metropolis/300';
+@import '@fontsource/metropolis/500';
+@import '@fontsource/metropolis/600';
+@import '@fontsource/metropolis/700';
+@import 'tippy-theme';
+
+:root {
+	--bg-color: #191414;
+	--sidebar-color: #000;
+	--header-color: #000;
+	--text-color: #fff;
+	--accent-color: #1db954;
+	--menu-background-color: #2e2e2e;
+	--light-gray: #a7a7a7;
+	--medium-gray: #2e2e2e;
+	--dark-gray: #181818;
+	--menu-text-color: #fff;
+	--border: rgba(255, 255, 255, 0.15);
+	--sidebar-width: 250px;
+	--header-height: 64px;
+	--error: #c24141;
+	--warning: #e7a917;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	font-family: 'Metropolis', sans-serif;
+	background-color: var(--bg-color);
+	color: var(--text-color);
+	font-size: 1.6rem;
+}
+
+::selection {
+	background-color: var(--accent-color);
+	color: var(--text-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: 700;
+	line-height: 1.4;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+h1 {
+	font-size: 3.6rem;
+}
+h2 {
+	font-size: 3.2rem;
+}
+h3 {
+	font-size: 2.8rem;
+}
+h4 {
+	font-size: 2.4rem;
+}
+h5 {
+	font-size: 2rem;
+}
+h6 {
+	font-size: 1.6rem;
+}
+
+p {
+	font-size: 1.6rem;
+	line-height: 1.7;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+a {
+	color: var(--accent-color);
+}
+
+select,
+input,
+button,
+a {
+	&:focus-visible {
+		outline: 2px solid var(--accent-color);
+		outline-offset: 2px;
+	}
+}
+
+.visually-hidden,
+.skip-link:not(:focus) {
+	clip: rect(0 0 0 0);
+	clip-path: inset(100%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+.skip-link:focus {
+	position: absolute;
+	z-index: 200;
+	background: var(--accent-color);
+	color: #fff;
+	padding: 1rem;
+	top: 1rem;
+	left: 1rem;
+	outline: 2px solid;
+	font-weight: 500;
+}
+
+#nprogress .bar {
+	background: var(--accent-color) !important;
+}

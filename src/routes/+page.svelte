@@ -1,2 +1,10 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script>
+	// import type { PageData } from './$types';
+
+	export let data;
+
+	// $: console.log(data.categoriesPlaylists.map((pl) => pl?.playlists.items));
+</script>
+
+<style lang="scss">
+</style>
