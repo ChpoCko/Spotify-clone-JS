@@ -1,24 +1,16 @@
 <script>
-	// type Element = $$Generic<'button' | 'a'>;
-
-	// interface ButtonComponentElements {
-	// 	button: HTMLButtonAttributes;
-	// 	a: HTMLAnchorAttributes;
-	// }
-
-	// type $$Props = ButtonComponentElements[Element] & {
-	// 	el: Element;
-	// 	variant?: 'solid' | 'outline' | 'danger';
-	// 	className?: string;
-	// };
-
-	export let el;
+	export let element;
 	export let variant = 'solid';
 	export let className = '';
 </script>
 
 <!-- svelte-ignore a11y-no-static-element-interactions -->
-<svelte:element this={el} class="button button-{variant} {className}" on:click {...$$restProps}>
+<svelte:element
+	this={element}
+	class="button button-{variant} {className}"
+	on:click
+	{...$$restProps}
+>
 	<slot />
 </svelte:element>
 
