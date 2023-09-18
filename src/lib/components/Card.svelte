@@ -11,6 +11,12 @@
 			<Music aria-hidden="true" focusable="false" color="var(--light-gray)" />
 		</div>
 	{/if}
+	<h4 class="truncate-1"><a href="/{item.type}/{item.id}" title={item.name}>{item.name}</a></h4>
+	{#if item.type === 'album'}
+		<p class="truncate-1">{item.artists.map((item) => item.name).join(', ')}</p>
+	{:else if item.type === 'playlist'}
+		<p class="truncate-2">{item.description}</p>
+	{/if}
 </div>
 
 <style lang="scss">
@@ -20,14 +26,50 @@
 		box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
 		border-radius: 4px;
 		transition: background 0.3s;
+		position: relative;
 
 		&:hover {
 			background-color: var(--medium-gray);
-			cursor: pointer;
+			// cursor: pointer;
 
 			.cover-placeholder {
 				background-color: var(--dark-gray);
 			}
+		}
+
+		h4 {
+			margin: 0 0 1rem;
+			font-size: 1.6rem;
+			font-weight: 600;
+			line-height: 1;
+
+			a {
+				text-decoration: none;
+				color: var(--text-color);
+
+				&:focus-visible {
+					outline: none;
+					&::after {
+						outline: 2px solid var(--accent-color);
+					}
+				}
+				&::after {
+					content: '';
+					position: absolute;
+					top: 0;
+					left: 0;
+					right: 0;
+					bottom: 0;
+					border-radius: 4px;
+				}
+			}
+		}
+
+		p {
+			margin: 0;
+			color: var(--light-gray);
+			font-size: 1.4rem;
+			position: relative;
 		}
 
 		img {
