@@ -8,6 +8,10 @@
 </script>
 
 <div class="banner">
+	<div
+		class="banner-gradient"
+		style:background-image="linear-gradient(0deg, transparent, {color || 'var(--light-gray)'})"
+	/>
 	<div class="cover">
 		{#if img}
 			<img src={img} alt={title} />
@@ -31,16 +35,37 @@
 </div>
 
 <style lang="scss">
+	.content {
+		position: relative;
+		z-index: 10;
+		min-height: 30rem;
+		background-image: linear-gradient(0deg, var(--bg-color), rgba(0, 0, 0, 0.1));
+		margin: 0 -3rem;
+		padding: 3rem;
+	}
 	.banner {
+		position: relative;
 		display: flex;
 		flex-direction: column;
+		margin: calc(-1 * (3rem + var(--header-height))) -3rem 0;
+		padding: calc(3rem + var(--header-height)) 3rem 2rem;
 
 		@include breakpoint.up('sm') {
 			flex-direction: row;
 			align-items: flex-end;
 		}
 
+		.banner-gradient {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 150%;
+			z-index: 1;
+		}
+
 		.info {
+			z-index: 10;
 			.type {
 				text-transform: uppercase;
 				font-weight: 600;
@@ -62,6 +87,12 @@
 		}
 		.cover {
 			margin-right: 4rem;
+			z-index: 10;
+
+			@include breakpoint.down('sm') {
+				margin-right: 0;
+				margin-bottom: 3rem;
+			}
 
 			img,
 			.cover-placeholder {
