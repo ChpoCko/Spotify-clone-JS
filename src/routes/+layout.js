@@ -1,6 +1,6 @@
 import { redirect } from '@sveltejs/kit';
-// import type { LayoutLoad } from './$types';
 
+/**@type {import('@sveltejs/kit').Load} */
 export const load = ({ data, url }) => {
 	const { user } = data || {};
 

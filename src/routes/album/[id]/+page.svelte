@@ -4,13 +4,14 @@
 	export let data;
 
 	$: album = data.album;
+	$: color = data.color;
 </script>
 
 <ItemPage
 	title={album.name}
 	type={album.album_type}
 	img={album.images.length > 0 ? album.images[0].url : undefined}
-	color={null}
+	{color}
 >
 	<p class="meta" slot="meta">
 		<span class="artists">
