@@ -1,6 +1,7 @@
 import { SPOTIFY_APP_CLIENT_ID, SPOTIFY_APP_CLIENT_SECRET } from '$env/static/private';
 import { error, json } from '@sveltejs/kit';
 
+/**@type {import('@sveltejs/kit').RequestHandler} */
 export const GET = async ({ cookies, fetch }) => {
 	const refreshToken = cookies.get('refresh_token');
 

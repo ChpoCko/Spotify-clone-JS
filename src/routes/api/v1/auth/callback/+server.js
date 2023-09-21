@@ -1,6 +1,7 @@
 import { error, redirect } from '@sveltejs/kit';
 import { SPOTIFY_APP_CLIENT_ID, SPOTIFY_APP_CLIENT_SECRET, BASE_URL } from '$env/static/private';
 
+/**@type {import('@sveltejs/kit').RequestHandler} */
 export const GET = async ({ url, cookies, fetch }) => {
 	const code = url.searchParams.get('code') || null;
 	const state = url.searchParams.get('state') || null;
