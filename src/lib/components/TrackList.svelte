@@ -2,6 +2,11 @@
 	import { msToTime } from '$helpers';
 	import { Clock8, ListPlus } from 'lucide-svelte';
 	import { Player } from '$components';
+	import playingGif from '$assets/playing.gif';
+
+	let currentlyPlaying = null;
+	let isPaused = true;
+
 	export let tracks;
 </script>
 
@@ -19,17 +24,22 @@
 		<div class="actions-column" />
 	</div>
 	{#each tracks as track, index}
-		<div class="row">
+		<div class="row" class:is-current={currentlyPlaying === track.id}>
 			<div class="number-column">
-				<span class="number">{index + 1}</span>
+				{#if currentlyPlaying === track.id && !isPaused}
+					<img src={playingGif} class="playing-gif" alt="" />
+				{:else}
+					<span class="number">{index + 1}</span>
+				{/if}
 				<div class="player">
 					<Player
 						{track}
 						on:play={(e) => {
-							console.log(e.detail);
+							currentlyPlaying = e.detail.track.id;
+							isPaused = false;
 						}}
 						on:pause={(e) => {
-							console.log(e.detail);
+							isPaused = currentlyPlaying === e.detail.track.id;
 						}}
 					/>
 				</div>
@@ -67,6 +77,13 @@
 			padding: 0.7rem 0.5rem;
 			border-radius: 4px;
 
+			&.is-current {
+				.info-column .track-title h4,
+				.number-column span.number {
+					color: var(--accent-color) !important;
+				}
+			}
+
 			&.header {
 				border-bottom: 1px solid var(--border);
 				border-radius: 0px;
@@ -88,6 +105,17 @@
 			&:not(.header) {
 				&:hover {
 					background-color: rgba(245, 245, 245, 0.05);
+
+					.number-column {
+						.player {
+							display: block;
+						}
+
+						span.number,
+						.playing-gif {
+							display: none;
+						}
+					}
 				}
 
 				.number-column {
@@ -99,6 +127,14 @@
 					span.number {
 						color: var(--light-gray);
 						font-size: 1.4rem;
+					}
+
+					.playing-gif {
+						width: 1.2rem;
+					}
+
+					.player {
+						display: none;
 					}
 				}
 
