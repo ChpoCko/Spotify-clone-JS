@@ -1,6 +1,10 @@
 import { browser } from '$app/environment';
 import { error } from '@sveltejs/kit';
-
+/**
+ *
+ * @param {(input: RequestInfo | URL, init?: RequestInit | undefined) => Promise<Response>} fetch
+ * @param {string} path
+ */
 export default async function fetchRefresh(fetch, path) {
 	const req = fetch(path);
 	if (!browser) return req;
