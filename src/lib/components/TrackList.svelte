@@ -1,6 +1,7 @@
 <script>
 	import { msToTime } from '$helpers';
 	import { Clock8, ListPlus } from 'lucide-svelte';
+	import { Player } from '$components';
 	export let tracks;
 </script>
 
@@ -21,6 +22,17 @@
 		<div class="row">
 			<div class="number-column">
 				<span class="number">{index + 1}</span>
+				<div class="player">
+					<Player
+						{track}
+						on:play={(e) => {
+							console.log(e.detail);
+						}}
+						on:pause={(e) => {
+							console.log(e.detail);
+						}}
+					/>
+				</div>
 			</div>
 			<div class="info-column">
 				<div class="track-title">
