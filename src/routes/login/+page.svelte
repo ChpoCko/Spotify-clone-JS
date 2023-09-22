@@ -11,13 +11,13 @@
 		<p>Enjoy ad-free music listening, offline playback, and more. Cancel anytime.</p>
 		<div class="buttons">
 			<Button
-				el="a"
+				element="a"
 				variant="outline"
 				href="https://www.spotify.com"
 				target="_blank"
 				rel="noopener noreferrer">Sign Up</Button
 			>
-			<Button el="a" href="/api/v1/auth/login">Log In</Button>
+			<Button element="a" href="/api/v1/auth/login">Log In</Button>
 		</div>
 	</div>
 	<div class="cover">

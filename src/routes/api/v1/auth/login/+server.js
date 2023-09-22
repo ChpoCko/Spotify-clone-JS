@@ -18,6 +18,7 @@ const generateRandomString = (length) => {
 const state = generateRandomString(16);
 const challenge = pkce.create();
 
+/**@type {import('@sveltejs/kit').RequestHandler} */
 export const GET = ({ cookies }) => {
 	cookies.set('spotify_auth_state', state);
 	cookies.set('spotify_auth_challenge_verifier', challenge.code_verifier);

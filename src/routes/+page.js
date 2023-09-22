@@ -1,6 +1,7 @@
 // import type { PageLoad } from './$types';
 import { fetchRefresh } from '$helpers';
 
+/**@type {import('@sveltejs/kit').Load} */
 export const load = async ({ fetch: _fetch, parent }) => {
 	const fetch = (path) => fetchRefresh(_fetch, path);
 	const { user } = await parent();

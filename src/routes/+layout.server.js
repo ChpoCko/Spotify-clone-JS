@@ -2,6 +2,7 @@
 import { SPOTIFY_BASE_URL } from '$env/static/private';
 import { redirect } from '@sveltejs/kit';
 
+/**@type {import('@sveltejs/kit').Load} */
 export const load = async ({ cookies, fetch, url }) => {
 	const accessToken = cookies.get('access_token');
 	if (!accessToken) {
