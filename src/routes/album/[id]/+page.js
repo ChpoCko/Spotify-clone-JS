@@ -4,7 +4,8 @@ import { error } from '@sveltejs/kit';
 /**
  * @type {import('@sveltejs/kit').Load}
  */
-export const load = async ({ fetch, params }) => {
+export const load = async ({ fetch, params, depends, route }) => {
+	depends(`app:${route.id}`);
 	const albumRes = await fetchRefresh(fetch, `/api/v1/spotify/albums/${params.id}`);
 
 	if (!albumRes.ok) {
