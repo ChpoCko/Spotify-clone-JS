@@ -5,7 +5,7 @@ import { error } from '@sveltejs/kit';
  * @type {import('@sveltejs/kit').Load}
  */
 export const load = async ({ fetch, params }) => {
-	const albumRes = await fetchRefresh(fetch, `/api/v1/spotify/albums/${params.id}dd`);
+	const albumRes = await fetchRefresh(fetch, `/api/v1/spotify/albums/${params.id}`);
 
 	if (!albumRes.ok) {
 		throw error(albumRes.status, 'Failed to load album!');

@@ -129,6 +129,12 @@
 					width: 100%;
 					text-align: left;
 					font-size: 1.4rem;
+					border-radius: 0;
+					font-weight: 400;
+
+					&:hover {
+						background-image: none;
+					}
 				}
 			}
 		}
